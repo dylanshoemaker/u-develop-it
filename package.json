@@ -6,9 +6,7 @@
   "scripts": {
     "test": "jest"
   },
-
   "start": "node server.js",
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dylanshoemaker/u-develop-it.git"
@@ -21,6 +19,7 @@
   },
   "homepage": "https://github.com/dylanshoemaker/u-develop-it#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mysql2": "^2.3.0"
   },
