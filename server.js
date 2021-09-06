@@ -1,7 +1,6 @@
-require("dotenv").config();
-const express = require("express");
-const mysql = require("mysql2");
+const db = require('./db/connection');
 const PORT = process.env.PORT;
+const express = require("express");
 const app = express();
 const inputCheck = require("./utils/inputCheck");
 
@@ -9,18 +8,7 @@ const inputCheck = require("./utils/inputCheck");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Connect to database
-const db = mysql.createConnection(
-  {
-    host: "localhost",
-    // Your MySQL username,
-    user: process.env.DB_USER,
-    // Your MySQL password
-    password: process.env.DB_PASS,
-    database: "election",
-  },
-  console.log("Connected to the election database.")
-);
+
 // // Create a candidate
 // const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
 //               VALUES (?,?,?,?)`;
