@@ -36,3 +36,10 @@ CREATE TABLE votes (
   CONSTRAINT fk_voter FOREIGN KEY (voter_id) REFERENCES voters(id) ON DELETE CASCADE,
   CONSTRAINT fk_candidate FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE
 );
+
+SELECT candidates.*, parties.name AS party_name, COUNT(candidate_id) AS count
+FROM votes
+LEFT JOIN candidates ON votes.candidate_id = candidates.id
+LEFT JOIN parties ON candidates.party_id = parties.id
+GROUP BY candidate_id ORDER BY count DESC;
+
